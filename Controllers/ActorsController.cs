@@ -20,11 +20,26 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Actors
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
+            if(_context.Actor == null)
+            {
+                Problem("Entity set 'ApplicationDbContext.Actor'  is null.");
+            }
+
+            var actors = from m in _context.Actor select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                actors = actors.Where(s => s.FirstName!.Contains(searchString));
+            }
+
+            return View(await actors.ToListAsync());
+            /*
             return _context.Actor != null ?
                         View(await _context.Actor.ToListAsync()) :
                         Problem("Entity set 'ApplicationDbContext.Actor'  is null.");
+            */
         }
 
         // GET: Actors/Details/5
