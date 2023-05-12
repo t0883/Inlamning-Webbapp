@@ -8,89 +8,89 @@ using Microsoft.EntityFrameworkCore;
 using Inlamning_Webbapp.Data;
 using Inlamning_Webbapp.Models;
 
-namespace Inlamning_Webbapp.Views
+namespace Inlamning_Webbapp.Controllers
 {
-    public class ActorsController : Controller
+    public class MoviesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public ActorsController(ApplicationDbContext context)
+        public MoviesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: Actors
+        // GET: Movies
         public async Task<IActionResult> Index()
         {
-              return _context.Actor != null ? 
-                          View(await _context.Actor.ToListAsync()) :
-                          Problem("Entity set 'ApplicationDbContext.Actor'  is null.");
+            return _context.Movie != null ?
+                        View(await _context.Movie.ToListAsync()) :
+                        Problem("Entity set 'ApplicationDbContext.Movie'  is null.");
         }
 
-        // GET: Actors/Details/5
+        // GET: Movies/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Actor == null)
+            if (id == null || _context.Movie == null)
             {
                 return NotFound();
             }
 
-            var actor = await _context.Actor
+            var movie = await _context.Movie
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (actor == null)
+            if (movie == null)
             {
                 return NotFound();
             }
 
-            return View(actor);
+            return View(movie);
         }
 
-        // GET: Actors/Create
+        // GET: Movies/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Actors/Create
+        // POST: Movies/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Age")] Actor actor)
+        public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(actor);
+                _context.Add(movie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(actor);
+            return View(movie);
         }
 
-        // GET: Actors/Edit/5
+        // GET: Movies/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Actor == null)
+            if (id == null || _context.Movie == null)
             {
                 return NotFound();
             }
 
-            var actor = await _context.Actor.FindAsync(id);
-            if (actor == null)
+            var movie = await _context.Movie.FindAsync(id);
+            if (movie == null)
             {
                 return NotFound();
             }
-            return View(actor);
+            return View(movie);
         }
 
-        // POST: Actors/Edit/5
+        // POST: Movies/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Age")] Actor actor)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
         {
-            if (id != actor.Id)
+            if (id != movie.Id)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace Inlamning_Webbapp.Views
             {
                 try
                 {
-                    _context.Update(actor);
+                    _context.Update(movie);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ActorExists(actor.Id))
+                    if (!MovieExists(movie.Id))
                     {
                         return NotFound();
                     }
@@ -115,49 +115,49 @@ namespace Inlamning_Webbapp.Views
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(actor);
+            return View(movie);
         }
 
-        // GET: Actors/Delete/5
+        // GET: Movies/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Actor == null)
+            if (id == null || _context.Movie == null)
             {
                 return NotFound();
             }
 
-            var actor = await _context.Actor
+            var movie = await _context.Movie
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (actor == null)
+            if (movie == null)
             {
                 return NotFound();
             }
 
-            return View(actor);
+            return View(movie);
         }
 
-        // POST: Actors/Delete/5
+        // POST: Movies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Actor == null)
+            if (_context.Movie == null)
             {
-                return Problem("Entity set 'ApplicationDbContext.Actor'  is null.");
+                return Problem("Entity set 'ApplicationDbContext.Movie'  is null.");
             }
-            var actor = await _context.Actor.FindAsync(id);
-            if (actor != null)
+            var movie = await _context.Movie.FindAsync(id);
+            if (movie != null)
             {
-                _context.Actor.Remove(actor);
+                _context.Movie.Remove(movie);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ActorExists(int id)
+        private bool MovieExists(int id)
         {
-          return (_context.Actor?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Movie?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }
