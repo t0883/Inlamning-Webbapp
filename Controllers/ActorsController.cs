@@ -7,13 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Inlamning_Webbapp.Data;
 using Inlamning_Webbapp.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace Inlamning_Webbapp.Controllers
 {
     public class ActorsController : Controller
     {
         private readonly ApplicationDbContext _context;
-
+        private readonly RoleManager<IdentityRole> _roleManager;
         public ActorsController(ApplicationDbContext context)
         {
             _context = context;
@@ -43,6 +45,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Actors/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Actor == null)
@@ -61,6 +64,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Actors/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -83,6 +87,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Actors/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Actor == null)
@@ -101,6 +106,7 @@ namespace Inlamning_Webbapp.Controllers
         // POST: Actors/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FirstName,LastName,Age")] Actor actor)
@@ -134,6 +140,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Actors/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Actor == null)
@@ -152,6 +159,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // POST: Actors/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
