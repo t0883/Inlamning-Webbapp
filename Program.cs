@@ -18,6 +18,9 @@ namespace Inlamning_Webbapp
 
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.ClaimsIdentity.RoleClaimType = "Admin")
+                .AddRoles<IdentityRole>();
             builder.Services.AddControllersWithViews();
 
             var app = builder.Build();

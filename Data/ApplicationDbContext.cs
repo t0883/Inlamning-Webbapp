@@ -13,11 +13,5 @@ namespace Inlamning_Webbapp.Data
         }
         public DbSet<Inlamning_Webbapp.Models.Actor> Actor { get; set; } = default!;
         public DbSet<Inlamning_Webbapp.Models.Movie> Movie { get; set; } = default!;
-        protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Actor>().Property(Price => Price.property).HasPrecision(18, 2);
-
-            base.OnModelCreating(modelBuilder);
-        }
     }
 }
