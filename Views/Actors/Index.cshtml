@@ -15,6 +15,12 @@
         <a asp-action="Create">Create New</a>
     </p>
 }
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
 <form asp-controller="Actors" asp-action="Index" method="get">
     <p>
         Firstname: <input type="text" name="SearchString"/>

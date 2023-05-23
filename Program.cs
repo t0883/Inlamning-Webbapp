@@ -1,6 +1,8 @@
 using Inlamning_Webbapp.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using Inlamning_Webbapp.Services;
 
 namespace Inlamning_Webbapp
 {
@@ -19,6 +21,9 @@ namespace Inlamning_Webbapp
             builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddTransient<IEmailSender, EmailSender>();
+            builder.Services.Configure<AuthMessageSenderOptions>(builder.Configuration);
 
             var app = builder.Build();
 
