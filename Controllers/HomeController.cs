@@ -49,7 +49,7 @@ namespace Inlamning_Webbapp.Controllers
             }
 
             //Skapa nya Users
-            string[] users = { "tobias", "superadmin" };
+            string[] users = { "Tobias", "Superadmin", "Madeleine", "Sarvenaz" };
             string ePostHandler = "@app.se";
 
             foreach (string user in users)
@@ -74,8 +74,17 @@ namespace Inlamning_Webbapp.Controllers
             }
 
             //Koppla rollen Admin till user Tobias
-            var adminUser = _context.Users.SingleOrDefault(n => n.UserName == "tobias@app.se");
-            await userStore.AddToRoleAsync(adminUser, "Admin");
+            var adminUser = _context.Users.SingleOrDefault(n => n.UserName == "Superadmin@app.se");
+            if(!userStore.IsInRoleAsync(adminUser,"Admin").Result)
+            {
+                await userStore.AddToRoleAsync(adminUser, "Admin");
+                await _context.SaveChangesAsync();
+
+            }
+
+            //await userStore.AddToRoleAsync(adminUser, "Admin");
+
+
         }
 
         public IActionResult Privacy()
