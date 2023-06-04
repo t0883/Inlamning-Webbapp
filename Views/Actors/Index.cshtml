@@ -54,7 +54,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
-                @if (User.IsInRole("Admin"))
+                @if (SignInManager.IsSignedIn(User))
                 {
                     <td>
                         <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
