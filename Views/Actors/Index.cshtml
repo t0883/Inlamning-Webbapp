@@ -1,4 +1,7 @@
-﻿@model IEnumerable<Inlamning_Webbapp.Models.Actor>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@model IEnumerable<Inlamning_Webbapp.Models.Actor>
 
 @{
     ViewData["Title"] = "Actors";
@@ -6,9 +9,18 @@
 
 <h1>Actors</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+@if (SignInManager.IsSignedIn(User))
+{
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        Bara en Admin kan se detta
+    </p>
+}
 <form asp-controller="Actors" asp-action="Index" method="get">
     <p>
         Firstname: <input type="text" name="SearchString"/>
@@ -42,11 +54,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Age)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                }
+                else {
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    </td>
+                }
         </tr>
 }
     </tbody>

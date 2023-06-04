@@ -19,4 +19,9 @@ html {
 
 body {
   margin-bottom: 60px;
+  background: #b6ff00;
+}
+
+nav{
+    background: #ff0000;
 }
