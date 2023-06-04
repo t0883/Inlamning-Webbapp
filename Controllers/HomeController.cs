@@ -2,6 +2,7 @@
 using Inlamning_Webbapp.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -72,7 +73,7 @@ namespace Inlamning_Webbapp.Controllers
                 userStore.CreateAsync(newUser).Wait();
             }
 
-            //Koppla rollen Admin till user Marcus
+            //Koppla rollen Admin till user Tobias
             var adminUser = _context.Users.SingleOrDefault(n => n.UserName == "tobias@app.se");
             await userStore.AddToRoleAsync(adminUser, "Admin");
         }
