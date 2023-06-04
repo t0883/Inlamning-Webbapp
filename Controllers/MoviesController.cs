@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Inlamning_Webbapp.Data;
 using Inlamning_Webbapp.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Inlamning_Webbapp.Controllers
 {
@@ -62,6 +63,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Movies/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
@@ -84,6 +86,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Movies/Edit/5
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Movie == null)
@@ -135,6 +138,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Movies/Delete/5
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Movie == null)
