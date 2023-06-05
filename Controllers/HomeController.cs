@@ -73,7 +73,7 @@ namespace Inlamning_Webbapp.Controllers
                 userStore.CreateAsync(newUser).Wait();
             }
 
-            //Koppla rollen Admin till user Tobias
+            //Koppla rollen Admin till user Superadmin
             var adminUser = _context.Users.SingleOrDefault(n => n.UserName == "Superadmin@app.se");
             if(!userStore.IsInRoleAsync(adminUser,"Admin").Result)
             {
