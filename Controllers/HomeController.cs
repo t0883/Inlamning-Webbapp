@@ -79,7 +79,6 @@ namespace Inlamning_Webbapp.Controllers
             {
                 await userStore.AddToRoleAsync(adminUser, "Admin");
                 await _context.SaveChangesAsync();
-
             }
 
 
