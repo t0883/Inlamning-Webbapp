@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using Microsoft.Identity.Client;
 
 namespace Inlamning_Webbapp.Controllers
 {
@@ -26,8 +27,75 @@ namespace Inlamning_Webbapp.Controllers
                 await PopulateDB();
             }
 
+            var movies = await _context.Movie.ToListAsync();
+            if(!movies.Any())
+            {
+                await GenerateMovies();
+            }
+            var actors = await _context.Actor.ToListAsync();
+            if (!actors.Any())
+            {
+                await GenerateActors();
+            }
+
             return View();
         }
+
+        private async Task GenerateActors()
+        {
+            DateTime[] dateTimes = new DateTime[]
+            {
+                new DateTime(2020-09-21),
+                new DateTime(2022-01-20),
+                new DateTime(2021-12-01),
+                new DateTime(2019-06-14),
+                new DateTime(2014-07-31)
+            };
+
+            string[,] actors = { { "Göran", "Svensson", "19" }, { "Karl", "Larsson", "56" }, { "Morgan", "Gustavsson", "35" }, { "Hejdar", "Fredriksson", "89" } };
+
+            for(int i = 0; i < 4; i++) 
+            {
+                Actor actor = new Actor
+                {
+                    FirstName = actors[i, 0],
+                    LastName = actors[i, 1],
+                    Age = int.Parse(actors[i, 2])
+                };
+
+                _context.Actor.Add(actor);
+                await _context.SaveChangesAsync();
+            }
+
+        }
+
+        private async Task GenerateMovies()
+        {
+            DateTime[] dateTimes = new DateTime[]
+            {
+                new DateTime(2020-09-21),
+                new DateTime(2022-01-20),
+                new DateTime(2021-12-01),
+                new DateTime(2019-06-14),
+                new DateTime(2014-07-31)
+            };
+
+            string[,] movies = { { "James Bond", "Action", "110" }, { "Harry Potter", "Fantasy", "110" } };
+            for(int i = 0; i < 2; i++)
+            {
+                Movie movie = new Movie
+                {
+                    Title = movies[i, 0],
+                    ReleaseDate = dateTimes[i],
+                    Genre = movies[i, 1],
+                    Price = int.Parse(movies[i, 2])
+                };
+
+                _context.Movie.Add(movie);
+                await _context.SaveChangesAsync();
+            }
+        }
+
 
         private async Task PopulateDB()
         {
