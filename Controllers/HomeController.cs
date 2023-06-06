@@ -106,7 +106,7 @@ namespace Inlamning_Webbapp.Controllers
             string[] roles = { "Admin", "Moderator", "User" };
             foreach (string role in roles)
             {
-                //Skapa en role i DB med namnet frpn 'role' variabel
+                //Skapa en role i DB med namnet från 'role' variabel
                 roleStore.CreateAsync(new IdentityRole(role)).Wait();
 
                 var newRole = _context.Roles.Where(m => m.Name == role).FirstOrDefault();

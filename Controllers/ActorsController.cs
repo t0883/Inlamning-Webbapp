@@ -85,7 +85,7 @@ namespace Inlamning_Webbapp.Controllers
         }
 
         // GET: Actors/Edit/5
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Actor == null)
