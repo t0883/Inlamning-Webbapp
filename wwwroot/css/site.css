@@ -9,19 +9,85 @@ html {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem #8feaca, 0 0 0 0.25rem #8feaca;
 }
 
 html {
   position: relative;
   min-height: 100%;
 }
-
-body {
-  margin-bottom: 60px;
-  background: #b6ff00;
+.courses .slide {
+    background-color: #8feaca;
+    border-radius: .5rem;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 4rem;
 }
 
-nav{
-    background: #ff0000;
+.courses .slide img{
+    height: 50rem;
+    width: 100%;
+}
+
+.courses .slide h3{
+    margin:1.5rem 0;
+    font-size: 2rem;
+    color: white;
+}
+.courses .slide p {
+    line-height: 2;
+    font-size: 1.6rem;
+    color: #8feaca;
+}
+
+.swiper-pagination-bullet {
+    background-color: #8feaca;
+}
+
+.swiper-pagination-bullet-active{
+    background-color: lightskyblue;
+}
+
+.reviews-slider .slide {
+    width: 35rem;
+    border-radius: .5rem;
+    background-color: #8feaca;
+    padding: 2rem;
+    margin-bottom: 4rem;
+}
+
+.reviews-slider .slide p{
+    line-height: 2;
+    font-size: 1.6rem;
+    color: #00A3F9;
+}
+
+.reviews-slider .slide .user{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+.reviews-slider .slide .user img{
+    height: 7rem;
+    width: 7rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.reviews-slider .slide .user h3{
+font-size: 2rem;
+color: white;
+margin-bottom: .7rem;
+
+}
+.image {
+    flex: 1 1 40rem;
+}
+.image img{
+    width: 25%;
+}
+body {
+  margin-bottom: 60px;
+  background: #ffffff;
 }
