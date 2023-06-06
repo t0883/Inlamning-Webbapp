@@ -1,3 +1,9 @@
+@charset "UTF-8";
+
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+
+
 html {
   font-size: 14px;
 }
@@ -89,5 +95,19 @@ margin-bottom: .7rem;
 }
 body {
   margin-bottom: 60px;
+}
+
+nav {
+    background: #8feaca;
+}
+
+h1 {
+    color:#8feaca;
+
+}
+
+footer {
+    background: #8feaca;
+}
   background: #ffffff;
 }
