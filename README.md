@@ -1,46 +1,38 @@
 # Inlamning-Webbapp
 
-En asp.net app skapad av Tobias Andersson, Sarvenaz Sinaei och Madeleine Svedberg för inlämning i kursen Webbapplikationer på NBI / Handelsakademin. 
-
-# Set-up
-
-# Reflektioner
-
-
-
-
+En asp.net app skapad av Tobias Andersson, Sarvenaz Sinaei och Madeleine Svedberg fÃ¶r inlÃ¤mning i kursen Webbapplikationer pÃ¥ NBI / Handelsakademin. 
 
 
 # Beskrivning:
-En asp.NET applikation skapad av Tobias, Sarvenaz och Madeleine. Syftet med arbetet är att man skall kunna använda applikationen som en form av databas/register för filmer och skådespelare.
-Man skall kunna lägga upp nya, redigera befintliga samt radera poster i applikationen. Utöver detta skall man även kunna registrera ett konto samt kunna logga in. Det krävs att du har
-ett registrerat konto för att kunna gör ändringar.
+En asp.NET applikation skapad av Tobias, Sarvenaz och Madeleine. Syftet med arbetet Ã¤r att man skall kunna anvÃ¤nda applikationen som en form av databas/register fÃ¶r filmer och skÃ¥despelare.
+Man skall kunna lÃ¤gga upp nya, redigera befintliga samt radera poster i applikationen. UtÃ¶ver detta skall man Ã¤ven kunna registrera ett konto samt kunna logga in. Det krÃ¤vs att du har
+ett registrerat konto fÃ¶r att kunna gÃ¶r Ã¤ndringar.
 
 # Installation:
-För att kunna använda programmet krävs du ha tillgång till Visual studio, internet och en webbläsare. 
-För att ladda ner Visual studio gör så här: Gå till visualstudio.microsoft.com och välj "Download Visual Studio". När installationen är klar bör du ha tillgåg till programmet.
+FÃ¶r att kunna anvÃ¤nda programmet krÃ¤vs du ha tillgÃ¥ng till Visual studio, internet och en webblÃ¤sare. 
+FÃ¶r att ladda ner Visual studio gÃ¶r sÃ¥ hÃ¤r: GÃ¥ till visualstudio.microsoft.com och vÃ¤lj "Download Visual Studio". NÃ¤r installationen Ã¤r klar bÃ¶r du ha tillgÃ¥g till programmet.
 
-# Användning:
-Öppna programmet genom att högerklicka på filen som heter Inlamning-Webbapp.sln och välj öppna med Visual Studio. Välj sedan den gröna "play-knappen" som ligger långt upp på sidan, ungefär imitten.
-När du gjort detta har du full tillgång till alla funktioner i applikationen. Börja med att registrera ett konto. Du behöver ett registrerat konto för att kunna göra ändringar i applikationen. När du gjort det måste du första logga in på ditt konto. Sedan kan du själv börja
-lägga till filmer och skådespelare. 
-För att skapa konto tryck på: Register > Fyll i epost och lösenordet två gånger> tryck på register > tryck sedan på texten "Click here to confirm your account" för att bekräfta registreringen. Klart.
-För att logga in tryck på: Log in > fyll i epost och lösenord > tryck på "log in". Klart.
-För att lägga till en film tryck på: Movies > Create New > fyll i titel > fyll i datum som filmen kom ut > fyll i genre > fyll i pris > tryck på create. Klart.
-För att redigera en film tryck på: Movies > tryck på "Edit" på den film du vill redigera > Redigera de du vill > tryck på save. Klart.
-För att lägga till en skådelspelare tryck på: Actors > Create New > Fyll i Förnamn > fyll i efternamn > Fyll i ålder > tryck på create. Klart.
-För att redigera en skådespelare tryck på: Actors > tryck på "edit" på den skådespelare du vill redigera > redigera de du vill > tryck på save. Klart.
+# AnvÃ¤ndning:
+Ã–ppna programmet genom att hÃ¶gerklicka pÃ¥ filen som heter Inlamning-Webbapp.sln och vÃ¤lj Ã¶ppna med Visual Studio. VÃ¤lj sedan den grÃ¶na "play-knappen" som ligger lÃ¥ngt upp pÃ¥ sidan, ungefÃ¤r imitten.
+NÃ¤r du gjort detta har du full tillgÃ¥ng till alla funktioner i applikationen. BÃ¶rja med att registrera ett konto. Du behÃ¶ver ett registrerat konto fÃ¶r att kunna gÃ¶ra Ã¤ndringar i applikationen. NÃ¤r du gjort det mÃ¥ste du fÃ¶rsta logga in pÃ¥ ditt konto. Sedan kan du sjÃ¤lv bÃ¶rja
+lÃ¤gga till filmer och skÃ¥despelare. 
+FÃ¶r att skapa konto tryck pÃ¥: Register > Fyll i epost och lÃ¶senordet tvÃ¥ gÃ¥nger> tryck pÃ¥ register > tryck sedan pÃ¥ texten "Click here to confirm your account" fÃ¶r att bekrÃ¤fta registreringen. Klart.
+FÃ¶r att logga in tryck pÃ¥: Log in > fyll i epost och lÃ¶senord > tryck pÃ¥ "log in". Klart.
+FÃ¶r att lÃ¤gga till en film tryck pÃ¥: Movies > Create New > fyll i titel > fyll i datum som filmen kom ut > fyll i genre > fyll i pris > tryck pÃ¥ create. Klart.
+FÃ¶r att redigera en film tryck pÃ¥: Movies > tryck pÃ¥ "Edit" pÃ¥ den film du vill redigera > Redigera de du vill > tryck pÃ¥ save. Klart.
+FÃ¶r att lÃ¤gga till en skÃ¥delspelare tryck pÃ¥: Actors > Create New > Fyll i FÃ¶rnamn > fyll i efternamn > Fyll i Ã¥lder > tryck pÃ¥ create. Klart.
+FÃ¶r att redigera en skÃ¥despelare tryck pÃ¥: Actors > tryck pÃ¥ "edit" pÃ¥ den skÃ¥despelare du vill redigera > redigera de du vill > tryck pÃ¥ save. Klart.
 
 
-# Status och kända problem:
+# Status och kÃ¤nda problem:
 
 
 # Reflektion: 
 Vad har varit roligt?
-Kul att få lära sig nya saker 
+Kul att fÃ¥ lÃ¤ra sig nya saker 
 
-Vad har varit svårt?
-Svårt att få allting att fungera som man vill och koppla samman projekten via git.
+Vad har varit svÃ¥rt?
+SvÃ¥rt att fÃ¥ allting att fungera som man vill och koppla samman projekten via git.
 
 Vad har varit enklast?
 Ingenting har varit enkelt. Allt har varit en utmaning.
@@ -49,7 +41,7 @@ Vad har varit en utmaning?
 Att veta vilken kod som skall in i vilken fil.
 
 Hur har sammarbetet fungerat i gruppen?
-Med omständigheter att vi har alla olika liv med olika mycket tid osv så har det väl ändå fungerat hyfsat. Vi har jobbat mycket på varsitt håll men arbetat tätt nu i slutet för att färdigställa projektet.
+Med omstÃ¤ndigheter att vi har alla olika liv med olika mycket tid osv sÃ¥ har det vÃ¤l Ã¤ndÃ¥ fungerat hyfsat. Vi har jobbat mycket pÃ¥ varsitt hÃ¥ll men arbetat tÃ¤tt nu i slutet fÃ¶r att fÃ¤rdigstÃ¤lla projektet.
 
 Vad tar vi med oss i framtiden?
-Att det är svårare att arbeta 3 än två eftersom alla har olika åsikter och tankar. 
+Att det Ã¤r svÃ¥rare att arbeta 3 Ã¤n tvÃ¥ eftersom alla har olika Ã¥sikter och tankar. 
